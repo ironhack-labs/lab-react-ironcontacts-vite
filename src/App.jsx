@@ -10,7 +10,7 @@ const [contacts, setContacts] = useState(contactDeets.slice(0,5));
 const [randomContacts, setRandomContacts] = useState(contactDeets.slice(5));
 console.log(contacts);
 
-const random = Math.floor(Math.random() * (randomContacts.length +1));
+const random = Math.floor(Math.random() * (randomContacts.length));
 
 console.log(random);
 
