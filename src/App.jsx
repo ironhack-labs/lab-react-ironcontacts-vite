@@ -3,49 +3,31 @@ import "./App.css";
 import contacts from "./contacts.json";
 
 function App() {
-  const [contactsToDisplay, setContactsToDisplay] = useState(
-    contacts.slice(0, 5)
-  );
+  const [contactsToDisplay, setContactsToDisplay] = useState(contacts.slice(0, 5));
 
   const [reaminingContacts, setReaminingContacts] = useState(contacts.slice(5));
 
   const addContact = () => {
-    if (reaminingContacts.length === 0) {
-      return;
-    }
-    const randomContact =
-      reaminingContacts[Math.floor(Math.random() * reaminingContacts.length)];
-    console.log(randomContact);
-
+    if (reaminingContacts.length === 0) {return;}
+    const randomContact = reaminingContacts[Math.floor(Math.random() * reaminingContacts.length)];
+    
     const newList = [...contactsToDisplay, randomContact];
     setContactsToDisplay(newList);
-    setReaminingContacts(
-      reaminingContacts.filter((contact) => {
-        return contact.id !== randomContact.id;
-      })
-    );
+    setReaminingContacts(reaminingContacts.filter((contact) => contact.id !== randomContact.id));
   };
 
   const sortByPopularity = () => {
-    const sortedArr = [...contactsToDisplay].sort(
-      (a, b) => b.popularity - a.popularity
-    );
-    console.log(sortedArr);
+    const sortedArr = [...contactsToDisplay].sort((a, b) => b.popularity - a.popularity);
     setContactsToDisplay(sortedArr);
   };
 
   const sortByName = () => {
-    const sortedArr = [...contactsToDisplay].sort((a, b) =>
-      a.name > b.name ? 1 : b.name > a.name ? -1 : 0
-    );
-    console.log(sortedArr);
+    const sortedArr = [...contactsToDisplay].sort((a, b) => a.name > b.name ? 1 : b.name > a.name ? -1 : 0);
     setContactsToDisplay(sortedArr);
   };
 
   const deleteContact = (id) => {
-    const arrAfterDlt = contactsToDisplay.filter((contact) => {
-      return contact.id !== id;
-    });
+    const arrAfterDlt = contactsToDisplay.filter((contact) => contact.id !== id);
     setContactsToDisplay(arrAfterDlt);
   };
 
