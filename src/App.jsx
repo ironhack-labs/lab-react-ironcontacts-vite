@@ -27,6 +27,15 @@ function App() {
 
   }
 
+  function deleteContact(){
+    const deletedContacts = contactId => {
+      const filteredContacts = contacts.filter(contact => {
+        return contacts.id !== contactId;
+      });
+      setContacts(filteredContacts);
+  }
+
+  }
 
   return (
     <div className="fex flex wrapped">
@@ -40,11 +49,11 @@ function App() {
 
       <table>
         <thead>
-
           {contacts.map((contact) => {
             return (
-
+             
               <tr key={contact.id}>
+                <button button onClick={deleteContact} className="btn-dlt"> Delete</button>
                 <td><img src={contact.pictureUrl} alt={contact.name} style={{ width: '200px', height: '200px' }} /></td>
                 <td>{contact.name}</td>
                 <td><p>Popularity</p>{contact.popularity}</td>
