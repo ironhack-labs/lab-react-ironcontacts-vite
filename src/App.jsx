@@ -3,7 +3,7 @@ import contactsData from "./contacts.json"
 import { useState } from "react";
 
 function App() {
-  const [contacts, setContacts] = useState(contactsData.splice(0, 5));
+  const [contacts, setContacts] = useState(contactsData.slice(0, 5));
   const [restOfContacts, setRestOfContacts] = useState(contactsData.slice(5));
 
   const addRandomContact = () => {
@@ -36,9 +36,9 @@ function App() {
   return (
     <div className="contact-container">
       <h2>IronContacts</h2>
-      <button onClick={addRandomContact}>+ Random Contact</button>
-      <button onClick={sortByPopularity}>Sort By Popularity</button>
-      <button onClick={sortByName}>Sort By Name</button>
+      <button onClick={addRandomContact}>Add Random Contact</button>
+      <button onClick={sortByPopularity}>Sort by Popularity</button>
+      <button onClick={sortByName}>Sort by Name</button>
       <table className="contact-container" >
         <thead className="header">
           <tr>
@@ -50,15 +50,19 @@ function App() {
             <th>Actions</th>
           </tr>
         </thead>
-        {contacts.map((contact, index) => (
-          <tr className="row" key={index}>
-            <td><img src={contact.pictureUrl} alt="" /></td>
-            <td>{contact.name}</td>
-            <td>{contact.popularity}</td>
-            {contact.wonOscar ? <td> 🏆 </td> : <td></td>}
-            <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
-          </tr>
-        ))}
+        <tbody>
+
+          {contacts.map((contact, index) => (
+            <tr className="row" key={index}>
+              <td><img src={contact.pictureUrl} alt="" /></td>
+              <td>{contact.name}</td>
+              <td>{contact.popularity}</td>
+              {contact.wonOscar ? <td> 🏆 </td> : <td></td>}
+              {contact.wonEmmy ? <td> 🌟 </td> : <td></td>}
+              <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </div>
   )
