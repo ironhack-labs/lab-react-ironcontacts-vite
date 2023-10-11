@@ -1,10 +1,15 @@
 import "./App.css";
+import ContactTable from "./components/contact-table/contact-table";
+import React from 'react'
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>LAB | React IronContacts</h1>
+    <>
+    <div className = "main" >
+      <ContactTable />
     </div>
+    </>
   );
 }
 
