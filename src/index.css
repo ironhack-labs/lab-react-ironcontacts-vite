@@ -29,6 +29,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #242424;
 }
 
 h1 {
@@ -66,4 +67,20 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+}
+
+td img {
+  width: 100px;
+}
+
+.App button {
+  margin: 0 10px 30px 0;
+  
+}
+table {
+  width: 60%;
+  margin: 0 auto;
+}
+.App {
+  width: 100vw;
 }
