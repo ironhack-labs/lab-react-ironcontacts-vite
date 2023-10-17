@@ -67,3 +67,17 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+tr,
+th,
+td {
+  outline: 1px solid white;
+}
+
+.randomBtn {
+  margin-bottom: 30px;
+}
+
+button {
+  margin-right: 20px;
+}
