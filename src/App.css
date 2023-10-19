@@ -40,3 +40,18 @@
 .read-the-docs {
   color: #888;
 }
+
+#root > div {
+
+outline-style: double;
+outline-width: 5px;
+outline-offset: 20px;
+outline-color: #2e2d33;
+
+}
+
+.button {
+
+background-color: #3131398a !important;
+
+}
