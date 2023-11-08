@@ -1,42 +1,44 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+.App img {
+	width: 100px;
+	font-family:  sans-serif;
+}
+body {
+	font-family: sans-serif;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+table {
+	table-layout: fixed;
+	border-collapse: collapse;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.cup {
+	font-size: 2.4em;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+td,tr,th {
+	border: 2px solid rgb(23, 115, 196);
+	border-collapse: collapse;
+	text-align: center;
+	padding: 5px;
 }
 
-.card {
-  padding: 2em;
+.delete-button {
+	background-color: red;
+	border: none;
+	padding: 8px;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+	border-radius: 4px;
 }
 
-.read-the-docs {
-  color: #888;
+.normal-button {
+	margin-right: 12px;
+	margin-bottom: 10px;
+	background-color: rgb(85, 158, 222);
+	border: none;
+	padding: 8px;
+	color: white;
+	cursor: pointer;
+	border-radius: 6px;
 }
