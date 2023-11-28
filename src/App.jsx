@@ -5,6 +5,7 @@ import  contacts from "./contacts.json"
 function App() {
   const getContacts = contacts.slice(0,5)
   const [contact,setContact]=useState(getContacts)
+  
   const handleRandom = ()=>{
     const randomValue = Math.floor(Math.random() * contacts.length/2)
     const randomValue2 =Math.floor(Math.random() * (contacts.length-contacts.length/2) +contacts.length/2) 
