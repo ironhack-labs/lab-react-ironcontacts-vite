@@ -3,21 +3,25 @@ import "./App.css";
 import  contacts from "./contacts.json"
 
 function App() {
-  const getContacts = contacts.slice(0,5)
-  const [contact,setContact]=useState(getContacts)
-  
+  const [contact,setContact]=useState(contacts.slice(0,5))
+  const [remaining,setRemaining]=useState(contacts.slice(5,contacts.length))
   const handleRandom = ()=>{
-    const randomValue = Math.floor(Math.random() * contacts.length/2)
-    const randomValue2 =Math.floor(Math.random() * (contacts.length-contacts.length/2) +contacts.length/2) 
-    setContact(contacts.slice(randomValue,randomValue2))
-    console.log(randomValue,randomValue2)
+    let randomNum = Math.floor(Math.random() * remaining.length);
+    let randomContact = remaining[randomNum]
+
+    const updatedRemaining = [...remaining]
+    updatedRemaining.splice(randomNum,1)
+    setRemaining(updatedRemaining)
+    setContact([...contact,randomContact])
   }
+
 
   const handleSortName= ()=>{
     const sortByName=[...contact].sort((a,b)=>a.name.localeCompare(b.name))
     return setContact(sortByName)
   }
   const handlePopularity= () =>{
+
     const sortByPopularity = [...contact].sort((a,b)=>b.popularity-a.popularity)
     return setContact(sortByPopularity)
   }
@@ -42,16 +46,16 @@ function App() {
         </tr>
       </thead>
       <tbody>
-        {contact.map((e) => (
-          <tr key={e.id}>
+        {contact.map((person) => (
+          <tr key={person.id}>
             <td>
-              <img src={e.pictureUrl} alt="contact-img" />
+              <img src={person.pictureUrl} alt="contact-img" />
             </td>
-            <td>{e.name}</td>
-            <td>{e.popularity.toFixed(2)}</td>
-            <td>{e.wonOscar && <span>🏆</span>}</td>
-            <td>{e.wonEmmy && <span>🌟 </span>}</td>
-            <td><button onClick={()=>handleDelete(e.id)}>Delete</button></td>
+            <td>{person.name}</td>
+            <td>{person.popularity.toFixed(2)}</td>
+            <td>{person.wonOscar && <span>🏆</span>}</td>
+            <td>{person.wonEmmy && <span>🌟 </span>}</td>
+            <td><button onClick={()=>handleDelete(person.id)}>Delete</button></td>
           </tr>
         ))}
         </tbody>
