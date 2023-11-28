@@ -40,3 +40,30 @@
 .read-the-docs {
   color: #888;
 }
+
+.ContactCard {
+  border: 1px solid grey;
+  box-shadow: 0px 2px 3px grey;
+  width: 400px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+
+  border-radius: 4px;
+}
+
+.image {
+  max-width: 50px;
+}
+
+.info {
+  text-align: center;
+}
+
+.btn-delete {
+  padding: 3px 10px;
+  min-width: 50px;
+  height: 40px;
+  margin: 5px;
+  font-size: 1rem;
+}
