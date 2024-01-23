@@ -31,12 +31,26 @@ const Actors = () => {
 
     }
 
+    const sortUsers = () => {
+      const sortedActors = [...actors].sort((actor1, actor2) => {
+        return actor1.name.localeCompare(actor2.name);
+      });
+    
+      setActors(sortedActors);
+    };
+
 
     return (
         <div>
           <Button type="success" onClick={onAddRandomActor} disabled={actors.length === 0}>
             Add new actor
           </Button>
+          
+
+          <Button text="Sort" type="secondary" onClick={sortUsers}>
+            Sort
+          </Button>
+
     
           <table className="table table-bordered mt-3">
             <thead className="thead-dark">
