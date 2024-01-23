@@ -1,0 +1,8 @@
+.card-img-top {
+    height: auto;
+    width: 100px;
+}
+
+.btn-danger {
+    background-color: rgb(232, 42, 42);
+}
