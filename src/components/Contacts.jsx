@@ -39,6 +39,17 @@ const Actors = () => {
       setActors(sortedActors);
     };
 
+    const sortPopularity = () => {
+      const sortedPopularity = [...actors].sort((actor1, actor2) => {
+        const popularity1 = actor1.popularity;
+        const popularity2 = actor2.popularity;
+
+        return popularity2 - popularity1;
+      });
+    
+      setActors(sortedPopularity);
+    };
+
 
     return (
         <div>
@@ -49,6 +60,10 @@ const Actors = () => {
 
           <Button text="Sort" type="secondary" onClick={sortUsers}>
             Sort
+          </Button>
+
+          <Button text="Sort" type="secondary" onClick={sortPopularity}>
+            Sort Popularity
           </Button>
 
     
