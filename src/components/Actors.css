@@ -1,0 +1,36 @@
+/* Estilo para el contenedor principal */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1000px;
+}
+
+/* Estilo para la sección de botones */
+.Buttons {
+    display: flex;
+    gap: 10px; /* Espacio entre los botones */
+}
+
+/* Estilo para la tabla de títulos */
+.list-title {
+    margin-top: 20px; /* Espacio entre los botones y la tabla de títulos */
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Estilo para la lista de actores */
+.actor-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Espacio entre las filas de actores */
+}
+
+/* Estilo para cada fila de actor */
+.acotr-contact {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 100%;
+    max-width: 400px; /* Ajusta según tus necesidades */
+}
