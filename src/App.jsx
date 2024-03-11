@@ -2,28 +2,41 @@ import "./App.css";
 import contacts from "./contacts.json";
 import { useState } from "react";
 
-//const [shortList, setContacts] = useState()
-
-const wonOscar = (contact) => {
-  if(contact.wonOscar) {
-    return "🏆"
-  } else {
-    return ""
-  }
-}
-
-const wonEmmy = (contact) => {
-  if(contact.wonEmmy) {
-    return "🌟"
-  } else {
-    return ""
-  }
-}
 
 function App() {
+
+  const [shortList, setContacts] = useState(contacts.slice(0,5))
+
+  const randomIndex = () => {
+    return Math.floor(Math.random() * shortList.length)
+  }
+
+  const Shuffle = () => {
+    let newContact = contacts[randomIndex()];
+    
+    setContacts([...shortList, newContact]); 
+  }
+  
+  const wonOscar = (contact) => {
+    if(contact.wonOscar) {
+      return "🏆"
+    } else {
+      return ""
+    }
+  }
+  
+  const wonEmmy = (contact) => {
+    if(contact.wonEmmy) {
+      return "🌟"
+    } else {
+      return ""
+    }
+  }
+
   return (
     <div className="App">
       <h1>IronContacts</h1>
+      <button onClick={Shuffle}>Add Random Contact</button>
       <table>
         <thead>
           <tr>
@@ -35,7 +48,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-        {contacts.slice(0,5).map(contact => (
+        {shortList.map(contact => (
           <tr key={contact.id}> 
               <td><img src={contact.pictureUrl} alt={contact.name} style={{ width: '50px' }}/></td> {/* Utilisation de <td> pour les images */}
               <td>{contact.name}</td>
