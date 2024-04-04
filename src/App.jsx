@@ -8,13 +8,19 @@ function App() {
   const [shortList, setContacts] = useState(contacts.slice(0,5))
 
   const randomIndex = () => {
-    return Math.floor(Math.random() * shortList.length)
+    return Math.floor(Math.random() * contacts.length)
   }
 
   const Shuffle = () => {
-    let newContact = contacts[randomIndex()];
-    
-    setContacts([...shortList, newContact]); 
+    let newList = []
+
+    for (let i = 0; i < 4; i++) {
+      newList.push(contacts[randomIndex()])
+    }
+
+    setContacts(newList); 
+    console.log(newList)
+
   }
   
   const wonOscar = (contact) => {
@@ -43,8 +49,8 @@ function App() {
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
-            <th>Won <br />Oscar</th>
-            <th>Won <br />Emmy</th>
+            <th>Won Oscar</th>
+            <th>Won Emmy</th>
           </tr>
         </thead>
         <tbody>

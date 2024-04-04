@@ -44,9 +44,14 @@
 th {
   padding-left: 10px;
   padding-right: 10px;
+  width: 100px;
 }
 
 td {
   padding-left: 10px;
   padding-right: 10px;
+}
+
+button {
+  margin-bottom: 30px;
 }
