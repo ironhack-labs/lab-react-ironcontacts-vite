@@ -10,13 +10,12 @@ function App() {
   };
 
   const Shuffle = () => {
-    setContacts(null)
+    setContacts(null);
     let newList = [];
 
     while (newList.length < 5) {
-
       let potentialContact = contacts[randomIndex()];
-      if (!newList.find(contact => contact.id === potentialContact.id)) {
+      if (!newList.find((contact) => contact.id === potentialContact.id)) {
         newList.push(potentialContact);
       }
     }
@@ -43,11 +42,17 @@ function App() {
     console.log(sortedList);
   };
 
-
   const SortByPopularity = () => {
     let sortedList = [...shortList].sort((a, b) => b.popularity - a.popularity);
     setContacts(sortedList);
     console.log(sortedList);
+  };
+
+  const deleteContact = (contactId) => {
+    const filteredContacts = shortList.filter(
+      (contact) => contact.id !== contactId
+    );
+    setContacts(filteredContacts);
   };
 
   const wonOscar = (contact) => {
@@ -93,11 +98,15 @@ function App() {
                   style={{ width: "50px" }}
                 />
               </td>{" "}
-              {/* Utilisation de <td> pour les images */}
               <td>{contact.name}</td>
               <td>{contact.popularity.toFixed(2)}</td>
               <td>{wonOscar(contact)}</td>
               <td>{wonEmmy(contact)}</td>
+              <td>
+                <button onClick={() => deleteContact(contact.id)}>
+                  Delete
+                </button>
+              </td>
             </tr>
           ))}
         </tbody>
