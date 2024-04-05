@@ -40,3 +40,10 @@
 .read-the-docs {
   color: #888;
 }
+
+.App img {
+  width: 100px;
+}
+.App table{
+  border: 1px black solid;
+}
