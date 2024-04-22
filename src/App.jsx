@@ -2,11 +2,7 @@ import React, { useState } from "react";
 import contactsData from "./contacts.json";
 
 function App() {
-  const [contacts, setContacts] = useState([]);
-
-  useState(() => {
-    setContacts(contactsData.slice(0, 5));
-  }, []);
+  const [contacts, setContacts] = useState([...contactsData].slice(0, 5));
 
   function addRandom() {
     const randomNum = Math.floor(Math.random() * (contactsData.length - 5));
@@ -26,7 +22,7 @@ function App() {
     );
   }
 
-  function deleteRow() {
+  function deleteRow(id) {
     setContacts((prevContacts) =>
       prevContacts.filter((contact) => contact.id !== id)
     );
@@ -58,7 +54,13 @@ function App() {
               <td>{contact.wonOscar ? "🏆" : ""}</td>
               <td>{contact.wonEmmy ? "🌟" : ""}</td>
               <td>
-                <button onClick={deleteRow}>Delete</button>
+                <button
+                  onClick={() => {
+                    deleteRow(contact.id);
+                  }}
+                >
+                  Delete
+                </button>
               </td>
             </tr>
           ))}
