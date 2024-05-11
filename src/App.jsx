@@ -13,6 +13,8 @@ function App() {
       <th>Picture</th>
       <th>Name</th>
       <th>Popularity</th>
+      <th>Won an Oscar</th>
+      <th>Won an Emmy</th>
     </tr>
   </thead>
   <tbody>
@@ -20,7 +22,7 @@ function App() {
         return (
           <tr>
             <td>
-              <img src={celeb.pictureUrl} alt={celeb.name}></img>
+              <img style={{width:"50px"}} src={celeb.pictureUrl} alt={celeb.name}></img>
             </td>
             <td>
               { celeb.name }
@@ -28,7 +30,15 @@ function App() {
             <td>
               { celeb.popularity }
             </td> 
-          </tr>)
+            <td>
+              { celeb.wonOscar ? <i>🏆</i> : null }
+            </td> 
+            <td>
+            { celeb.wonEmmy ? <i>🌟</i> : null }
+              
+            </td> 
+          </tr>
+          )
       })}
     </tbody>
       </table>
