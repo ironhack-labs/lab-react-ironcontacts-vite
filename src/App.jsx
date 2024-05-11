@@ -16,13 +16,14 @@ function App() {
   };
 
   let SortbyPopularity = ()=> {
-    cList.sort((a,b) => {return b.popularity - a.popularity});
     const newList = [...cList];
+    newList.sort((a,b) => {return b.popularity - a.popularity});
     SetContacts(newList);
   };
 
   let SortbyName = ()=> {
-    cList.sort((a,b) => {
+    const newList = [...cList];
+    newList.sort((a,b) => {
     const nameA = a.name.toUpperCase(); // ignore upper and lowercase
     const nameB = b.name.toUpperCase(); // ignore upper and lowercase
       if (nameA < nameB) {
@@ -33,7 +34,6 @@ function App() {
         }
     return 0;
 });
-const newList = [...cList];
 SetContacts(newList);
   };
 
