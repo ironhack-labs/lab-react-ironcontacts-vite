@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+th,tr {
+  padding:5px;
+}
+
+#button-div {
+  background-color: rgb(218, 216, 216);
+}
+
+#button-div > button {
+  padding: 5px;
+  margin:10px;
+}

@@ -11,7 +11,7 @@ function App() {
     let remaining = ContactsList.filter(celebrity => {return !contacts.find((element) => element === celebrity);});
     let randomContactPosition= Math.floor(Math.random() * remaining.length);
     const newList = [...cList];
-    newList.push(remaining[randomContactPosition])
+    newList.push(remaining[randomContactPosition]);
     SetContacts(newList);
   };
 
@@ -37,12 +37,23 @@ const newList = [...cList];
 SetContacts(newList);
   };
 
+  let DeleteContact = (celebToDelete)=> {
+    const newList = [...cList];
+    const index = newList.indexOf(celebToDelete);
+    if(index !== -1) {
+      newList.splice(index,1);
+      SetContacts(newList);
+    }
+  };
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
+      <div id="button-div">
       <button onClick={AddContact}>Add Random Contact</button>
       <button onClick={SortbyPopularity}>Sort by Popularity</button>
       <button onClick={SortbyName}>Sort by Name</button>
+      </div>
       <table>
       <thead>
     <tr>
@@ -51,6 +62,7 @@ SetContacts(newList);
       <th>Popularity</th>
       <th>Won an Oscar</th>
       <th>Won an Emmy</th>
+      <th>Actions</th>
     </tr>
   </thead>
   <tbody>
@@ -71,6 +83,9 @@ SetContacts(newList);
             </td> 
             <td>
             { celeb.wonEmmy ? <i>🌟</i> : null }
+            </td> 
+            <td>
+              <button onClick={() => DeleteContact(celeb)}>Delete</button>
             </td> 
           </tr>
           )
