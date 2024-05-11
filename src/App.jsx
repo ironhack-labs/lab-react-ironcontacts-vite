@@ -2,7 +2,7 @@ import "./App.css";
 import ContactsList from "./contacts.json";
 import { useState } from "react";
 
-const contacts = ContactsList.slice(0,5);
+const contacts = ContactsList.slice(1,6);
 
 function App() {
   const [cList,SetContacts] = useState(contacts);
@@ -14,10 +14,35 @@ function App() {
     newList.push(remaining[randomContactPosition])
     SetContacts(newList);
   };
+
+  let SortbyPopularity = ()=> {
+    cList.sort((a,b) => {return b.popularity - a.popularity});
+    const newList = [...cList];
+    SetContacts(newList);
+  };
+
+  let SortbyName = ()=> {
+    cList.sort((a,b) => {
+    const nameA = a.name.toUpperCase(); // ignore upper and lowercase
+    const nameB = b.name.toUpperCase(); // ignore upper and lowercase
+      if (nameA < nameB) {
+        return -1;
+        }
+      if (nameA > nameB) {
+        return 1;
+        }
+    return 0;
+});
+const newList = [...cList];
+SetContacts(newList);
+  };
+
   return (
     <div className="App">
       <h1>LAB | React IronContacts</h1>
       <button onClick={AddContact}>Add Random Contact</button>
+      <button onClick={SortbyPopularity}>Sort by Popularity</button>
+      <button onClick={SortbyName}>Sort by Name</button>
       <table>
       <thead>
     <tr>
