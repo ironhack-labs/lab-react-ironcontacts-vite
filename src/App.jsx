@@ -14,10 +14,26 @@ function App() {
 
   /* !!! const copiedContacts = [...contacts] */
 
-  const addContact = (contactId) => {
+  const addContact = () => {{
     /* !!! setContacts(contacts.push(randomContact)); */
-    setContacts([...contacts, randomContact]); 
-    setRestOfContacts(restOfContacts.filter(contact => contactId !== contact.id))
+    setContacts([...contacts, randomContact]);
+    const randomContactId = randomContact.id;
+    setRestOfContacts(restOfContacts.filter(contact => randomContactId !== contact.id))
+    }
+    
+  }
+
+  const sortByPopularity = () => {
+    
+    setContacts([...contacts].sort((contactA, contactB) => {
+      return contactB.popularity - contactA.popularity
+
+  }))}
+
+  const sortByName = () => {
+    setContacts([...contacts].sort((contactA, contactB) => {
+      return (contactA.name).localeCompare(contactB.name)
+    }))
   }
 
   const deleteContact = (contactId) => {
@@ -30,13 +46,13 @@ function App() {
     <div className="App">
       <h1>IronContacts</h1>
 
-      <button onClick={addContact}>Add Random Contact</button>
+      <button className="button" onClick={addContact}>Add Random Contact</button>
 
-      <button>Sort by name</button>
-      <button>Sort by popularity</button>
+      <button className="button" onClick={sortByName}>Sort by name</button>
+      <button className="button" onClick={sortByPopularity}>Sort by popularity</button>
       <table>
         <thead>
-          <tr>
+          <tr className="table-column">
             <th>Picture</th>
             <th>Name</th>
             <th>Popularity</th>
@@ -50,11 +66,11 @@ function App() {
           {contacts.map(contact => {
             
             return (
-              <tr key={contact.id}>
+              <tr className="table-column" key={contact.id}>
                 <td><img className="picture" key = {contact.id} src={contact.pictureUrl}></img></td>
                 <td><p className="name" key = {contact.id}>{contact.name}</p></td>
                 <td><p key = {contact.id}>{contact.popularity.toFixed(2)}</p></td>
-                <td>{ contact.wonOscar ? <p>🏆</p> : ""} </td>
+                <td>{ contact.wonOscar ? <p>🏆</p> : ""}</td>
                 <td>{ contact.wonEmmy ? <p>🌟</p> : ""}</td>
                 <td><button onClick={() => deleteContact(contact.id)}>Delete</button></td>
               </tr>
