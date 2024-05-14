@@ -10,16 +10,14 @@ function App() {
 
   const [restOfContacts, setRestOfContacts] = useState(contactsData.slice(5));
 
-  const randomContact = restOfContacts[Math.floor(Math.random() * restOfContacts.length)];
-
   /* !!! const copiedContacts = [...contacts] */
 
-  const addContact = () => {{
+  const addContact = () => {
     /* !!! setContacts(contacts.push(randomContact)); */
+    const randomContact = restOfContacts[Math.floor(Math.random() * restOfContacts.length)];
     setContacts([...contacts, randomContact]);
-    const randomContactId = randomContact.id;
-    setRestOfContacts(restOfContacts.filter(contact => randomContactId !== contact.id))
-    }
+    setRestOfContacts(restOfContacts.filter(contact => randomContact.id !== contact.id))
+    
     
   }
 
