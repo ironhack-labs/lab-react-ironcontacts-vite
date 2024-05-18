@@ -5,17 +5,21 @@ import { useState } from "react";
 
 function App() {
 
-  const [contacts, setContacts] = useState(contactsData.slice(0, 5)); /* !!! useState([...contactsData.slice(0, 5)]); */
-  /* const copiedContacts = [...contacts] */
+  const [contacts, setContacts] = useState(contactsData.slice(0, 5)); /* !!! useState([...contactsData.slice(0, 5)]); - this is copy of the data - not a copy of a state. Every time we need to make an extra copy of a state. */
 
   const [restOfContacts, setRestOfContacts] = useState(contactsData.slice(5));
 
-  /* !!! const copiedContacts = [...contacts] */
-
+  
   const addContact = () => {
-    /* !!! setContacts(contacts.push(randomContact)); */
-    const randomContact = restOfContacts[Math.floor(Math.random() * restOfContacts.length)];
-    setContacts([...contacts, randomContact]);
+
+
+    const randomContact = restOfContacts[Math.floor(Math.random() * restOfContacts.length)]; /* we put it inside a function cause we need a random number every time we click */
+
+/*     const copiedContacts = [...contacts]; we need to make a copy here cause we need a copy every time we click!!! */
+    /* !!! setContacts(copiedContacts.push(randomContact)); it returns an error !!!*/
+
+
+    setContacts([randomContact, ...contacts]);
     setRestOfContacts(restOfContacts.filter(contact => randomContact.id !== contact.id))
     
     
