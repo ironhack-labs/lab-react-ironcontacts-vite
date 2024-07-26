@@ -6,33 +6,26 @@ function App() {
   const [contactsState, setContactsState] = useState(contactsData.slice(0, 5));
 
   const addRandomContact = () => {
-    // Filter out contacts that are already displayed
     const remainingContacts = contactsData.filter(contact => !contactsState.some(c => c.id === contact.id));
 
-    // Check if there are any remaining contacts
     if (remainingContacts.length > 0) {
-      // Select a random contact from the remaining contacts
       const randomIndex = Math.floor(Math.random() * remainingContacts.length);
       const randomContact = remainingContacts[randomIndex];
 
-      // Update the state with the new random contact
       setContactsState(prevState => [...prevState, randomContact]);
     }
   };
 
-  // Function to sort contacts by name (alphabetically)
   const sortByName = () => {
     const sortedContacts = [...contactsState].sort((a, b) => a.name.localeCompare(b.name));
     setContactsState(sortedContacts);
   };
 
-  // Function to sort contacts by popularity (highest first)
   const sortByPopularity = () => {
     const sortedContacts = [...contactsState].sort((a, b) => b.popularity - a.popularity);
     setContactsState(sortedContacts);
   };
 
-  // Function to delete a contact by id
   const deleteContact = (id) => {
     const updatedContacts = contactsState.filter(contact => contact.id !== id);
     setContactsState(updatedContacts);
@@ -54,7 +47,7 @@ function App() {
             <th>Popularity</th>
             <th>Won an Oscar</th>
             <th>Won an Emmy</th>
-            <th>Actions</th> {/* Column for action buttons */}
+            <th>Actions</th> 
           </tr>
         </thead>
         <tbody>
