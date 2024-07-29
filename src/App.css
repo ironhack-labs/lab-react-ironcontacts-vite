@@ -40,3 +40,40 @@
 .read-the-docs {
   color: #888;
 }
+
+table {
+  margin: 0 auto;
+  width: 80%;
+  border-collapse: collapse;
+}
+
+.style-thead {
+  background-color: #b37dc5;
+}
+
+.styled-table {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  font-family: sans-serif;
+  margin: 10px
+}
+
+th, td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.button {
+  padding: 5px 10px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #ffed47;
+  color: rgb(106, 28, 180);
+  border-style: groove;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.star {
+  font-size: 3em;
+}
+
