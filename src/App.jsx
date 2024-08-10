@@ -68,26 +68,22 @@ function App() {
         <tbody>
           {contacts.map((contact) => (
             <tr key={contact.id}>
-              <th>
+              <td>
                 <img src={contact.pictureUrl} alt="Contact Picture"></img>
-              </th>
-              <th>
+              </td>
+              <td>
                 <p>{contact.name}</p>
-              </th>
-              <th>
-                <p>{contact.popularity}</p>
-              </th>
-              <th>
-                <p>{contact.wonOscar && "🏆"}</p>
-              </th>
-              <th>
-                <p>{contact.wonEmmy && "🌟"}</p>
-              </th>
-              <th>
+              </td>
+              <td>
+                <p>{contact.popularity.toFixed(2)}</p>
+              </td>
+              <td>{contact.wonOscar && <p>🏆</p>}</td>
+              <td>{contact.wonEmmy && <p>🌟</p>}</td>
+              <td>
                 <button onClick={() => deleteContact(contact.id)}>
                   Delete
                 </button>
-              </th>
+              </td>
             </tr>
           ))}
         </tbody>
