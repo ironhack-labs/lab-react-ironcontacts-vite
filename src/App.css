@@ -40,3 +40,16 @@
 .read-the-docs {
   color: #888;
 }
+
+td img {
+  height: 150px;
+}
+thead th {
+  font-size: 1.8em;
+  padding: 0 0.2em;
+}
+
+tbody td {
+  font-size: 1.8em;
+  padding: 0 0.2em
+}
