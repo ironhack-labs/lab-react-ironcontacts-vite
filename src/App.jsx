@@ -22,7 +22,7 @@ function App() {
   }
 
   function deleteButton(contactId) {
-    setContacts(contacts.filter((contact) => contact.id !== contactId.id))
+    setContacts(contacts.filter((contact) => contact.id !== contactId))
   }
 
   return (
@@ -53,7 +53,7 @@ function App() {
                 <td>{contact.popularity.toFixed(2)}</td>
                 <td>{contact.wonOscar && '🏆'}</td>
                 <td>{contact.wonEmmy && '🌟'}</td>
-                <td><button onClick={() => deleteButton(contact)}>Delete</button></td>
+                <td><button onClick={() => deleteButton(contact.id)}>Delete</button></td>
               </tr>
           ))}
         </tbody>
