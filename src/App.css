@@ -1,42 +1,88 @@
 #root {
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
-  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #0f172a;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.App h1 {
+  margin-bottom: 1rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button {
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  color: #fff;
+  padding: 0.65rem 1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.18);
+  transition: transform 150ms ease, box-shadow 150ms ease, opacity 150ms ease;
 }
 
-.card {
-  padding: 2em;
+button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(99, 102, 241, 0.25);
 }
 
-.read-the-docs {
-  color: #888;
+button:active {
+  transform: translateY(0);
+  box-shadow: 0 8px 16px rgba(99, 102, 241, 0.18);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+th,
+td {
+  padding: 0.85rem 1rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: left;
+}
+
+th {
+  background: linear-gradient(135deg, #0ea5e9, #6366f1);
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-size: 0.95rem;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #f8fafc;
+}
+
+tbody tr:hover {
+  background-color: #eef2ff;
+}
+
+td img {
+  width: 60px;
+  height: 80px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(15, 23, 42, 0.2);
+}
+
+td:last-child button {
+  background: #ef4444;
+  box-shadow: 0 10px 20px rgba(239, 68, 68, 0.18);
+}
+
+td:last-child button:hover {
+  box-shadow: 0 12px 24px rgba(239, 68, 68, 0.25);
 }
